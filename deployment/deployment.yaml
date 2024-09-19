@@ -1,4 +1,4 @@
-iapiVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: java-app-deployment
@@ -32,12 +32,12 @@ kind: Service
 metadata:
   name: java-app-service
   labels:
-    app: app
+    app: java
 spec:
   selector:
     app: java
   ports:
-    - port: 80
+    - protocol: TCP
+      port: 80
       targetPort: 8080
-  type: LoadBalancer
-
+  type: ClusterIP
